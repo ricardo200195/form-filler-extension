@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo ao Preenchedor de Formulários!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .feature-card p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .usage-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .usage-section h2 {
+            margin: 0 0 20px 0;
+            color: #4CAF50;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: #4CAF50;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        .shortcut {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .demo-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .demo-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .demo-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-form h3 {
+            margin: 0 0 20px 0;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Bem-vindo ao Preenchedor de Formulários!</h1>
+            <p>Sua extensão para preencher formulários com dados fictícios realistas</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>📝 Dados Realistas</h3>
+                <p>Gera nomes, CPFs, endereços e telefones brasileiros válidos e realistas para seus testes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎯 Detecção Inteligente</h3>
+                <p>Reconhece automaticamente os tipos de campos baseado em nomes, IDs e placeholders.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>⚡ Preenchimento Rápido</h3>
+                <p>Preenche todos os campos de uma vez com um clique ou atalho de teclado.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🔒 Seguro e Privado</h3>
+                <p>Todos os dados são gerados localmente, sem envio para servidores externos.</p>
+            </div>
+        </div>
+
+        <div class="usage-section">
+            <h2>📖 Como Usar</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Navegue até qualquer página com formulários</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">Clique no ícone da extensão na barra de ferramentas</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Clique em "Preencher Formulário" ou use o atalho:</div>
+            </div>
+            
+            <div class="shortcut">Ctrl + Shift + F</div>
+        </div>
+
+        <div class="demo-form">
+            <h3>🧪 Teste a Extensão</h3>
+            <p>Experimente preencher este formulário de exemplo:</p>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, número - Bairro">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Sua cidade">
+                </div>
+                
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" placeholder="SP">
+                </div>
+            </div>
+            
+            <button class="demo-button" onclick="testExtension()">🧪 Testar Preenchimento</button>
+        </div>
+
+        <div class="footer">
+            <p>✨ Desenvolvido com ❤️ para facilitar seus testes de formulários</p>
+            <p>Versão 1.0 - Dados 100% fictícios e seguros</p>
+        </div>
+    </div>
+
+    <script>
+        function testExtension() {
+            // Simula o preenchimento do formulário
+            const fields = document.querySelectorAll('input');
+            const testData = {
+                nome: 'João Silva Santos',
+                email: 'joao.silva@email.com',
+                telefone: '(11) 98765-4321',
+                cpf: '123.456.789-00',
+                endereco: 'Rua das Flores, 123 - Centro',
+                cidade: 'São Paulo',
+                estado: 'SP'
+            };
+            
+            fields.forEach(field => {
+                const fieldName = field.name;
+                if (testData[fieldName]) {
+                    field.value = testData[fieldName];
+                    field.style.background = '#e8f5e8';
+                    
+                    // Remove o destaque após 2 segundos
+                    setTimeout(() => {
+                        field.style.background = '';
+                    }, 2000);
+                }
+            });
+            
+            // Mostra mensagem de sucesso
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-family: Arial, sans-serif;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            `;
+            message.textContent = '✅ Formulário preenchido com sucesso!';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

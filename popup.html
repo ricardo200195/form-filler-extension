@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preenchedor de Formulários</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .main-button {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .main-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .main-button:active {
+            transform: translateY(0);
+        }
+
+        .shortcut-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .features h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .features ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .features li {
+            margin-bottom: 5px;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 15px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Preenchedor de Formulários</h1>
+        <p>Dados fictícios realistas</p>
+    </div>
+
+    <button id="fillFormBtn" class="main-button">
+        📝 Preencher Formulário
+    </button>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <div>Preenchendo formulário...</div>
+    </div>
+
+    <div class="shortcut-info">
+        <strong>Atalho de teclado:</strong><br>
+        <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>
+    </div>
+
+    <div class="features">
+        <h3>✨ Recursos:</h3>
+        <ul>
+            <li>Nomes brasileiros realistas</li>
+            <li>CPFs válidos</li>
+            <li>Endereços completos</li>
+            <li>Telefones e emails</li>
+            <li>Dados profissionais</li>
+            <li>Detecção automática de campos</li>
+        </ul>
+    </div>
+
+    <div class="status">
+        Versão 1.0 - Desenvolvido com ❤️
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

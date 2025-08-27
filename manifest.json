@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Preenchedor de Formulários - Dados Fictícios",
+  "version": "1.0",
+  "description": "Preenche automaticamente formulários com dados fictícios realistas",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Preencher Formulário"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["data-generator.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "fill-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+F"
+      },
+      "description": "Preencher formulário com dados fictícios"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["data-generator.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

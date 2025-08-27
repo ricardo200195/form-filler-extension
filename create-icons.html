@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Ícones PNG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .icon-preview {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .icon-size {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .icon-size h3 {
+            margin: 0 0 10px 0;
+            color: #666;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .download-btn:hover {
+            background: #45a049;
+        }
+        .instructions {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin: 0 0 15px 0;
+            color: #2e7d32;
+        }
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Criar Ícones PNG para Extensão</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instruções:</h3>
+            <ol>
+                <li>Clique nos botões "Download" para baixar os ícones</li>
+                <li>Salve os arquivos na pasta <code>icons/</code> com os nomes exatos</li>
+                <li>Depois recarregue a extensão no Chrome</li>
+            </ol>
+        </div>
+
+        <div class="icon-preview" id="iconPreview">
+            <!-- Ícones serão gerados aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Função para criar ícone simples
+        function createIcon(size, filename) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Fundo gradiente
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // Círculo de fundo
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 4, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Borda
+            ctx.strokeStyle = '#4CAF50';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            
+            // Formulário (retângulo branco)
+            const formWidth = size * 0.5;
+            const formHeight = size * 0.6;
+            const formX = (size - formWidth) / 2;
+            const formY = (size - formHeight) / 2;
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(formX, formY, formWidth, formHeight);
+            
+            // Linhas do formulário
+            ctx.fillStyle = '#4CAF50';
+            const lineHeight = 3;
+            const lineSpacing = formHeight / 6;
+            
+            for (let i = 1; i <= 5; i++) {
+                const y = formY + (i * lineSpacing);
+                const lineWidth = formWidth * (0.6 + Math.random() * 0.3);
+                const x = formX + (formWidth - lineWidth) / 2;
+                
+                ctx.fillRect(x, y, lineWidth, lineHeight);
+            }
+            
+            // Lápis (triângulo laranja)
+            const pencilSize = size * 0.15;
+            ctx.fillStyle = '#FF9800';
+            ctx.beginPath();
+            ctx.moveTo(formX + formWidth + 5, formY + 5);
+            ctx.lineTo(formX + formWidth + 5 + pencilSize, formY + 5);
+            ctx.lineTo(formX + formWidth + 5 + pencilSize/2, formY + 5 + pencilSize);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Checkmark verde
+            const checkSize = size * 0.2;
+            const checkX = formX + formWidth - checkSize/2;
+            const checkY = formY + formHeight - checkSize/2;
+            
+            ctx.fillStyle = '#4CAF50';
+            ctx.beginPath();
+            ctx.arc(checkX, checkY, checkSize/2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Checkmark branco
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(checkX - checkSize/4, checkY);
+            ctx.lineTo(checkX, checkY + checkSize/4);
+            ctx.lineTo(checkX + checkSize/4, checkY - checkSize/4);
+            ctx.stroke();
+            
+            // Cria o botão de download
+            const downloadBtn = document.createElement('button');
+            downloadBtn.className = 'download-btn';
+            downloadBtn.textContent = `Download ${filename}`;
+            downloadBtn.onclick = function() {
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+            
+            // Adiciona ao container
+            const iconContainer = document.createElement('div');
+            iconContainer.className = 'icon-size';
+            iconContainer.innerHTML = `<h3>${size}x${size}</h3>`;
+            iconContainer.appendChild(canvas);
+            iconContainer.appendChild(downloadBtn);
+            
+            document.getElementById('iconPreview').appendChild(iconContainer);
+        }
+
+        // Cria todos os ícones necessários
+        createIcon(16, 'icon16.png');
+        createIcon(48, 'icon48.png');
+        createIcon(128, 'icon128.png');
+    </script>
+</body>
+</html>

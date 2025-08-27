@@ -1,0 +1,42 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de backup
+*.bak
+*.backup
+*~
+
+# Arquivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de build/distribuição
+dist/
+build/
+*.zip
+*.crx
+
+# Arquivos de configuração local
+.env
+.env.local
+config.local.js
+
+# Arquivos de cache
+.cache/
+node_modules/
+
+# Arquivos de ícones PNG (se não quiser incluí-los)
+# icons/*.png
+
+# Arquivos de teste temporários
+test-results/
+coverage/

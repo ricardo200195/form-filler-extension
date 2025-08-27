@@ -1,0 +1,11 @@
+{
+  "commands": {
+    "fill-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+F"
+      },
+      "description": "Preencher formulário com dados fictícios"
+    }
+  }
+}
