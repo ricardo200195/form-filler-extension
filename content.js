@@ -74,8 +74,11 @@ class FormFiller {
       'state': 'estado',
       'estado': 'estado',
       'zip': 'cep',
+      'zip_code': 'cep',
+      'zipcode': 'cep',
       'cep': 'cep',
       'postal': 'cep',
+      'postal_code': 'cep',
 
       // Campos de data
       'birth': 'dataNascimento',
@@ -151,9 +154,18 @@ class FormFiller {
   fillField(field, data) {
     const fieldType = this.detectFieldType(field);
     
-    if (!fieldType || !data[fieldType]) return false;
+    if (!fieldType) return false;
 
-    const value = data[fieldType];
+    let value;
+    
+    // Tratamento especial para CEP que está dentro do objeto endereco
+    if (fieldType === 'cep') {
+      value = data.endereco ? data.endereco.cep : null;
+    } else {
+      value = data[fieldType];
+    }
+    
+    if (!value) return false;
     
     // Simula digitação humana
     this.simulateTyping(field, value);
