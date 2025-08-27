@@ -156,14 +156,12 @@ class FormFiller {
     
     if (!fieldType) return false;
 
-    let value;
-    
-    // Tratamento especial para CEP que está dentro do objeto endereco
+    // Pula o preenchimento do campo CEP (deixa em branco)
     if (fieldType === 'cep') {
-      value = data.endereco ? data.endereco.cep : null;
-    } else {
-      value = data[fieldType];
+      return false;
     }
+
+    let value = data[fieldType];
     
     if (!value) return false;
     
