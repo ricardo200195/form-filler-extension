@@ -85,3 +85,4 @@ Após resolver o problema dos ícones:
 ---
 
 **A extensão está 100% funcional! O problema é apenas visual dos ícones.** 🎉
+
